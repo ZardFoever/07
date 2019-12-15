@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>xin</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	 <div id="scroll-box">
+                            <ul class="activity">
+                                <li v-for="(item,index) in activityContent" :key="index">
+                                    {{item.createGmt}}&nbsp;&nbsp;&nbsp;{{item.title}}&nbsp;&nbsp;{{item.description}}
+                                </li>
+                            </ul>
+                            <ul class="activity">
+                                <li v-for="(item,index) in activityContent" :key="index">
+                                    {{item.createGmt}}&nbsp;&nbsp;&nbsp;{{item.title}}&nbsp;&nbsp;{{item.description}}
+                                </li>
+                            </ul>
+                        </div>
+————————————————
+版权声明：本文为CSDN博主「依赖_赖」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_39150852/article/details/90767445
+	<script type="text/javascript">
+		scroll(){
+      var timer = setInterval(autoScrollLine, 80)
+      function autoScrollLine() {
+                let box = document.getElementById('scroll-box')
+                let parent = document.getElementsByClassName('activity')[0]
+                if(box){
+                    if (box.scrollTop !=null && box.scrollTop >= parent.offsetHeight) {
+                        box.scrollTop = 0;
+                    } else {
+                        box.scrollTop++;
+                    }
+                    if (box.scrollTop % box.offsetHeight == 0) {
+                        clearInterval(this.timer)
+                        setTimeout(() => {
+                            this.timer = setInterval(autoScrollLine, 80)
+                        }, 0)
+                    }
+                }
+            }
+	}
+this.scroll()
+————————————————
+版权声明：本文为CSDN博主「依赖_赖」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_39150852/article/details/90767445
+	</script>
+</body>
+</html>
